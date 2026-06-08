@@ -1,0 +1,42 @@
+{
+  "name": "IvorySQL Skills",
+  "version": "1.0.0",
+  "description": "IvorySQL 数据库 AI 助手技能包，包含 22 个子技能，覆盖产品概览、部署、架构、配置、安全、高可用、SQL 开发、多语言驱动、Oracle 兼容特性等。",
+  "author": "IvorySQL Community",
+  "license": "Apache-2.0",
+  "skills": [
+    "ivorysql",
+    "ivorysql-app-builder",
+    "ivorysql-architecture",
+    "ivorysql-c",
+    "ivorysql-config",
+    "ivorysql-csharp",
+    "ivorysql-deployment",
+    "ivorysql-ecosystem",
+    "ivorysql-faq",
+    "ivorysql-functions",
+    "ivorysql-go",
+    "ivorysql-ha",
+    "ivorysql-jdbc",
+    "ivorysql-migration",
+    "ivorysql-nodejs",
+    "ivorysql-odbc",
+    "ivorysql-oracle-compat",
+    "ivorysql-plisql",
+    "ivorysql-python",
+    "ivorysql-security",
+    "ivorysql-sql",
+    "ivorysql-tools"
+  ],
+  "keywords": [
+    "ivorysql",
+    "postgresql",
+    "oracle",
+    "database",
+    "sql",
+    "plisql",
+    "migration"
+  ],
+  "homepage": "https://ivorysql.org",
+  "repository": "https://github.com/IvorySQL/skills.git"
+}

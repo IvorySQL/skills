@@ -1,0 +1,35 @@
+{
+  "name": "@ivorysql/skills",
+  "version": "1.0.0",
+  "description": "IvorySQL Skill Package - IvorySQL AI 编码助手技能包",
+  "bin": {
+    "ivorysql-skills": "./install.js"
+  },
+  "keywords": [
+    "ivorysql",
+    "postgresql",
+    "oracle",
+    "database",
+    "claude-code",
+    "skills",
+    "sql",
+    "plisql",
+    "migration"
+  ],
+  "author": "IvorySQL Community",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvorySQL/skills.git"
+  },
+  "homepage": "https://ivorysql.org",
+  "files": [
+    "skills/",
+    "install.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
