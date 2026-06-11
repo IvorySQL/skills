@@ -58,7 +58,7 @@ psql -d ivorysql
 
 ```bash
 # Pull official image
-docker pull ivorysql/ivorysql:5.3
+docker pull ivorysql/ivorysql:latest
 
 # Run container
 docker run -d --name ivorysql \
@@ -66,7 +66,7 @@ docker run -d --name ivorysql \
     -p 1521:1521 \
     -v /data/ivorysql:/var/lib/ivorysql/data \
     -e POSTGRES_PASSWORD=your_password \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 ```
 
 > For details: [container-deployment](references/container-deployment.md)
@@ -77,7 +77,7 @@ docker run -d --name ivorysql \
 version: '3.8'
 services:
   ivorysql:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     container_name: ivorysql
     ports:
       - "5432:5432"

@@ -145,12 +145,12 @@ git clone https://github.com/IvorySQL/IvorySQL.git
 cd IvorySQL
 
 # Switch to stable version
-git checkout v5.3
+git checkout IvorySQL_5.3
 
 # Or download release tarball
-wget https://github.com/IvorySQL/IvorySQL/archive/refs/tags/v5.3.tar.gz
-tar xzf v5.3.tar.gz
-cd IvorySQL-5.3
+wget https://github.com/IvorySQL/IvorySQL/archive/refs/tags/IvorySQL_5.3.tar.gz
+tar xzf IvorySQL-IvorySQL_5.3.tar.gz
+cd IvorySQL-IvorySQL_5.3
 ```
 
 ### 3. Configure Build Options
@@ -385,7 +385,7 @@ WantedBy=multi-user.target
 sudo yum remove ivorysql-server ivorysql-client ivorysql-contrib
 
 # Source installation uninstall
-cd IvorySQL-5.3
+cd IvorySQL-IvorySQL_5.3
 sudo make uninstall
 
 # Clean up data directory

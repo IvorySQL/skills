@@ -45,7 +45,7 @@ services:
 
   # Database
   ivorysql:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     ports:
       - "5432:5432"
       - "1521:1521"
@@ -76,7 +76,7 @@ docker run -d --name ivorysql \
     -p 1521:1521 \
     -v /data/ivorysql:/var/lib/ivorysql/data \
     -e POSTGRES_PASSWORD=secret \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 ```
 
 #### Using Package Manager
@@ -210,7 +210,7 @@ spec:
     spec:
       containers:
       - name: ivorysql
-        image: ivorysql/ivorysql:5.3
+        image: ivorysql/ivorysql:latest
         ports:
         - containerPort: 5432
         - containerPort: 1521

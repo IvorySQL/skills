@@ -68,7 +68,7 @@ metadata:
   namespace: ivorysql
 spec:
   # Image configuration
-  imageName: ivorysql/ivorysql:5.3
+  imageName: ivorysql/ivorysql:latest
 
   # Instance count
   instances: 3
@@ -246,7 +246,7 @@ kubectl get pods -n ivorysql -w
 ```bash
 # Rolling upgrade image version
 kubectl patch ivorysqlcluster ivorysql-cluster -n ivorysql \
-    -p '{"spec":{"imageName":"ivorysql/ivorysql:5.3"}}' --type merge
+    -p '{"spec":{"imageName":"ivorysql/ivorysql:latest"}}' --type merge
 
 # Check upgrade progress
 kubectl rollout status statefulset ivorysql-cluster -n ivorysql
@@ -373,7 +373,7 @@ metadata:
   name: ivorysql-restored
   namespace: ivorysql
 spec:
-  imageName: ivorysql/ivorysql:5.3
+  imageName: ivorysql/ivorysql:latest
   instances: 3
 
   # Restore from backup

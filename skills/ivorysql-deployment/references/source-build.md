@@ -21,9 +21,9 @@ cd IvorySQL
 git checkout IV5_REL_5_3_STABLE
 
 # Or download release tarball
-wget https://github.com/IvorySQL/IvorySQL/archive/refs/tags/5.3.tar.gz
-tar xzf 5.3.tar.gz
-cd IvorySQL-5.3
+wget https://github.com/IvorySQL/IvorySQL/archive/refs/tags/IvorySQL_5.3.tar.gz
+tar xzf IvorySQL-IvorySQL_5.3.tar.gz
+cd IvorySQL-IvorySQL_5.3
 ```
 
 ## Install Dependencies
@@ -318,7 +318,7 @@ pg_dumpall -U ivorysql > backup.sql
 # Update source code
 cd IvorySQL
 git pull
-git checkout IV5_REL_5_3_STABLE
+git checkout IvorySQL_5.3
 
 # Recompile
 make clean

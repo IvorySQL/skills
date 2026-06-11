@@ -13,13 +13,12 @@ tags: ivorysql, versions, release
 | IvorySQL 1.x | PG 14 | 2022 | Initial release, basic Oracle compatibility |
 | IvorySQL 2.x | PG 15 | 2023 | Enhanced compatibility, PL/iSQL improvements |
 | IvorySQL 3.x | PG 16 | 2023 | Stable release, Docker/K8s support |
-| IvorySQL 4.0 | PG 17 | 2024-12 | Package support, 21 Oracle compatibility features |
-| IvorySQL 5.0 | PG 18.0 | 2025-11 | Comprehensive upgrade, 10+ ecosystem components, Operator v5 |
-| IvorySQL 5.3 | PG 18.3 | 2026-03 | Latest stable release |
+| IvorySQL 4.x | PG 17 | 2024 | Package support, 21 Oracle compatibility features |
+| IvorySQL 5.x | PG 18 | 2025 | Comprehensive upgrade, 10+ ecosystem components, Operator v5 |
 
 ## Version Feature Comparison
 
-| Feature | 3.x | 4.0 | 5.0+ |
+| Feature | 3.x | 4.x | 5.x |
 |------|-----|-----|------|
 | PG Kernel | 16 | 17 | 18 |
 | Dual Parser | ✅ | ✅ | ✅ |
@@ -51,12 +50,3 @@ tags: ivorysql, versions, release
 | pgAudit | ❌ | ❌ | ✅ |
 | pg_cron | ❌ | ❌ | ✅ |
 
-## Selection Recommendations
-
-| Scenario | Recommended Version | Description |
-|------|---------|------|
-| New Project | 5.3 | Latest stable release, most feature-complete |
-| Oracle Migration | 5.0+ | Requires complete Oracle compatibility features |
-| PG Replacement | 5.0+ | 100% PG compatible + Oracle compatibility as backup |
-| Production Environment | 5.3 | Verified stable release |
-| Development & Testing | 5.3 | Latest features

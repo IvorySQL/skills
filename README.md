@@ -23,7 +23,7 @@ Download the skills package archive and extract it to the OpenClaw skills direct
 ## Directory Structure
 
 ```
-ivorysql-skills/
+skills/
 ├── SKILL.md                      # Package-level entry point (routing center)
 ├── README.md                     # Documentation
 │
@@ -40,8 +40,7 @@ ivorysql-skills/
 
 This skills package provides AI assistants with professional expertise and development guidance for the IvorySQL database. IvorySQL is an open-source relational database built on the PostgreSQL kernel with Oracle compatibility.
 
-This project originated from `ivorysql-skills`, a personal project by IvorySQL contributor Shawn Yan, who has also made many other contributions to the community. Special thanks to Shawn Yan!
-https://mp.weixin.qq.com/s/t27mnhLrt_EXB8BVnYIhpQ
+This project originated from [ivorysql-skills](https://mp.weixin.qq.com/s/t27mnhLrt_EXB8BVnYIhpQ), a personal project by IvorySQL contributor Shawn Yan, who has also made many other contributions to the community. Special thanks to Shawn Yan!
 
 ## Skills Catalog (22 skills)
 
@@ -93,22 +92,6 @@ https://mp.weixin.qq.com/s/t27mnhLrt_EXB8BVnYIhpQ
 - **Dual Parser**: Oracle syntax + PostgreSQL syntax
 - **Oracle Compatible**: 21 compatibility features
 - **PG Kernel**: 100% compatible with the PostgreSQL ecosystem
-
-## Quick Start
-
-```bash
-# Quick start with Docker
-docker run -d --name ivorysql \
-    -p 5432:5432 -p 1521:1521 \
-    -e POSTGRES_PASSWORD=secret \
-    ivorysql/ivorysql:5.3
-
-# Connect (Oracle mode)
-psql -h localhost -p 1521 -U ivorysql ivorysql
-
-# Connect (PG mode)
-psql -h localhost -p 5432 -U ivorysql ivorysql
-```
 
 ## License
 

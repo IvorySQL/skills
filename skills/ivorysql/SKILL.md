@@ -92,7 +92,7 @@ Trigger this skill when users ask the following questions:
 | **IvorySQL 5.3** | PG 18.3 | 2026-03 | ✅ Latest stable release, recommended for production |
 | IvorySQL 5.1 | PG 18.1 | 2025-12 | Recent stable release |
 | IvorySQL 5.0 | PG 18.0 | 2025-11 | Significant Oracle compatibility enhancements |
-| IvorySQL 4.0 | PG 17 | 2024-12 | Package support |
+| IvorySQL 4.x | PG 17 | 2024-12 | Package support |
 | IvorySQL 3.x | PG 16 | 2023 | Legacy version |
 
 ## Comparison with PostgreSQL / Oracle
@@ -117,7 +117,7 @@ Trigger this skill when users ask the following questions:
 docker run -d --name ivorysql \
     -p 5432:5432 -p 1521:1521 \
     -e POSTGRES_PASSWORD=secret \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 
 # Connect (Oracle port)
 psql -h localhost -p 1521 -U ivorysql ivorysql

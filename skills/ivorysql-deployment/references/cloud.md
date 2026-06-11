@@ -23,11 +23,7 @@ Containerized deployment is one of the mainstream deployment methods for IvorySQ
 
 ```bash
 # IvorySQL official image
-docker pull ivorysql/ivorysql:5.3
-
-# Specific variants
-docker pull ivorysql/ivorysql:5.3-oracle    # Oracle compatible mode
-docker pull ivorysql/ivorysql:5.3-alpine    # Alpine minimal image
+docker pull ivorysql/ivorysql:latest
 
 # View available tags
 docker search ivorysql
@@ -44,7 +40,7 @@ docker run -d \
     -e POSTGRES_DB=postgres \
     -p 5432:5432 \
     -p 1521:1521 \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 
 # With persistent storage
 docker run -d \
@@ -55,7 +51,7 @@ docker run -d \
     -p 5432:5432 \
     -p 1521:1521 \
     -v ivorysql_data:/var/lib/ivorysql/data \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 ```
 
 ### Custom Configuration Startup
@@ -70,7 +66,7 @@ docker run -d \
     -p 1521:1521 \
     -v /path/to/postgresql.conf:/etc/ivorysql/postgresql.conf \
     -v ivorysql_data:/var/lib/ivorysql/data \
-    ivorysql/ivorysql:5.3 \
+    ivorysql/ivorysql:latest \
     -c config_file=/etc/ivorysql/postgresql.conf
 ```
 
@@ -87,7 +83,7 @@ docker run -d \
     -p 1521:1521 \
     -v /path/to/init-scripts:/docker-entrypoint-initdb.d \
     -v ivorysql_data:/var/lib/ivorysql/data \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 ```
 
 Initialization script example:
@@ -129,7 +125,7 @@ podman run -d \
     -p 5432:5432 \
     -p 1521:1521 \
     -v ivorysql_data:/var/lib/ivorysql/data \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 
 # Generate systemd service file using podman generate systemd
 podman generate systemd --name ivorysql > ~/.config/systemd/user/ivorysql.service
@@ -157,7 +153,7 @@ version: '3.8'
 
 services:
   ivorysql:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     container_name: ivorysql
     restart: unless-stopped
     environment:
@@ -197,7 +193,7 @@ version: '3.8'
 
 services:
   ivorysql-primary:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     container_name: ivorysql-primary
     restart: unless-stopped
     environment:
@@ -224,7 +220,7 @@ services:
       - ivorysql_net
 
   ivorysql-standby:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     container_name: ivorysql-standby
     restart: unless-stopped
     environment:
@@ -266,7 +262,7 @@ version: '3.8'
 
 services:
   ivorysql:
-    image: ivorysql/ivorysql:5.3
+    image: ivorysql/ivorysql:latest
     container_name: ivorysql
     restart: unless-stopped
     environment:
@@ -386,7 +382,7 @@ spec:
     spec:
       containers:
         - name: ivorysql
-          image: ivorysql/ivorysql:5.3
+          image: ivorysql/ivorysql:latest
           ports:
             - containerPort: 5432
               name: pg-port
@@ -494,7 +490,7 @@ spec:
     spec:
       containers:
         - name: ivorysql
-          image: ivorysql/ivorysql:5.3
+          image: ivorysql/ivorysql:latest
           ports:
             - containerPort: 5432
             - containerPort: 1521
@@ -534,7 +530,7 @@ spec:
 
 ```dockerfile
 # Dockerfile
-FROM ivorysql/ivorysql:5.3
+FROM ivorysql/ivorysql:latest
 
 # Install additional extensions
 RUN yum install -y ivorysql-pgaudit ivorysql-pgbackrest && \
@@ -554,11 +550,11 @@ ENV ivorysql.port=1521
 
 ```bash
 # Build image
-docker build -t my-ivorysql:5.3 .
+docker build -t my-ivorysql:latest .
 
 # Push to private registry
-docker tag my-ivorysql:5.3 registry.example.com/ivorysql:5.3
-docker push registry.example.com/ivorysql:5.3
+docker tag my-ivorysql:latest registry.example.com/ivorysql:latest
+docker push registry.example.com/ivorysql:latest
 ```
 
 ## Container Management

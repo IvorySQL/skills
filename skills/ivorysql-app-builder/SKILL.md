@@ -93,7 +93,7 @@ Ask the user if they already have an IvorySQL service:
 
 ```bash
 # Pull official image
-docker pull ivorysql/ivorysql:5.3
+docker pull ivorysql/ivorysql:latest
 
 # Run container (dual ports: 5432 PG mode + 1521 Oracle mode)
 docker run -d --name ivorysql \
@@ -101,7 +101,7 @@ docker run -d --name ivorysql \
     -p 1521:1521 \
     -v ivorysql_data:/var/lib/ivorysql/data \
     -e POSTGRES_PASSWORD=your_password \
-    ivorysql/ivorysql:5.3
+    ivorysql/ivorysql:latest
 
 # Wait for startup to complete (~30 seconds)
 docker exec -it ivorysql psql -U ivorysql -d ivorysql
