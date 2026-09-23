@@ -5,6 +5,9 @@
   "bin": {
     "ivorysql-skills": "./install.js"
   },
+  "scripts": {
+    "test": "node --test test/package.test.js"
+  },
   "keywords": [
     "ivorysql",
     "postgresql",
@@ -24,6 +27,7 @@
   },
   "homepage": "https://ivorysql.org",
   "files": [
+    ".claude-plugin/",
     "skills/",
     "install.js",
     "README.md",
