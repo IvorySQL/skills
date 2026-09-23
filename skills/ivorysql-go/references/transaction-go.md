@@ -30,7 +30,7 @@ if err != nil {
 ## Transactions with Connection Pool
 
 ```go
-err := pool.AcquireFunc(ctx, func(conn *pgx.Conn) error {
+err := pool.AcquireFunc(ctx, func(conn *pgxpool.Conn) error {
     tx, err := conn.Begin(ctx)
     if err != nil {
         return err
