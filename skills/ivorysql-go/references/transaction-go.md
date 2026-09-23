@@ -125,6 +125,9 @@ tx.Commit(ctx)
 
 ```go
 func withRetry(ctx context.Context, pool *pgxpool.Pool, maxRetries int, fn func(pgx.Tx) error) error {
+    if maxRetries <= 0 {
+        return errors.New("maxRetries must be greater than zero")
+    }
     var lastErr error
     for i := 0; i < maxRetries; i++ {
         tx, err := pool.Begin(ctx)
@@ -136,6 +139,7 @@ func withRetry(ctx context.Context, pool *pgxpool.Pool, maxRetries int, fn func(
         if err != nil {
             tx.Rollback(ctx)
             if isRetryable(err) {
+                lastErr = err
                 time.Sleep(time.Duration(i+1) * 100 * time.Millisecond)
                 continue
             }
@@ -144,6 +148,7 @@ func withRetry(ctx context.Context, pool *pgxpool.Pool, maxRetries int, fn func(
 
         err = tx.Commit(ctx)
         if err != nil && isRetryable(err) {
+            lastErr = err
             time.Sleep(time.Duration(i+1) * 100 * time.Millisecond)
             continue
         }
