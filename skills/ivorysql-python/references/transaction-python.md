@@ -109,7 +109,7 @@ import asyncio
 import psycopg
 
 async def transfer():
-    async with await psycopg.connect("postgresql://...") as conn:
+    async with await psycopg.AsyncConnection.connect("postgresql://...") as conn:
         async with conn.transaction():
             await conn.execute("UPDATE accounts SET balance = balance - %s WHERE id = %s", (100, 1))
             await conn.execute("UPDATE accounts SET balance = balance + %s WHERE id = %s", (100, 2))
