@@ -49,7 +49,7 @@ import psycopg
 conn = psycopg.connect("postgresql://ivorysql:secret@localhost:1521/ivorysql")
 
 # Async
-async with await psycopg.connect("postgresql://...") as conn:
+async with await psycopg.AsyncConnection.connect("postgresql://...") as conn:
     await conn.execute("SELECT ...")
 ```
 
