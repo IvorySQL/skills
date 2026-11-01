@@ -85,7 +85,7 @@ await Promise.all(values.map(v => pool.query(query, v)));
 ## COPY Batch Import (Fastest)
 
 ```javascript
-const { pipeline } = require('stream');
+const { pipeline } = require('stream/promises');
 const { Readable } = require('stream');
 
 const data = 'Zhang San,8000,IT\nLi Si,9000,HR\n';
