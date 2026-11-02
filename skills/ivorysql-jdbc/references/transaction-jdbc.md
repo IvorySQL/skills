@@ -192,14 +192,16 @@ public void withRetry(int maxRetries, RunnableWithSQL action) {
                 return;
             } catch (SQLException e) {
                 conn.rollback();
-                if (isRetryable(e)) {
-                    Thread.sleep(100 * (i + 1));  // Exponential backoff
-                    continue;
+                if (!isRetryable(e) || i == maxRetries - 1) {
+                    throw e;
                 }
-                throw e;
+                Thread.sleep(100 * (i + 1));  // Linear backoff
             }
-        } catch (SQLException | InterruptedException e) {
-            if (i == maxRetries - 1) throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
         }
     }
 }
