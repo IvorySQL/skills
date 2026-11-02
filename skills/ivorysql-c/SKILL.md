@@ -166,7 +166,7 @@ PQexec(conn, "COMMIT");
 char *err = PQerrorMessage(conn);
 char *code = PQresultErrorField(res, PG_DIAG_SQLSTATE);
 
-if (strcmp(code, "23505") == 0) {
+if (code != NULL && strcmp(code, "23505") == 0) {
     printf("Unique constraint violation\n");
 }
 ```
