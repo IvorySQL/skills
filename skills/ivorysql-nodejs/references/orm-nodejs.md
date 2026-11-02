@@ -11,7 +11,7 @@ npm install sequelize pg
 ### Connection
 
 ```javascript
-const { Sequelize } = require('sequelize');
+const { Sequelize, Op } = require('sequelize');
 
 const sequelize = new Sequelize('ivorysql', 'ivorysql', 'secret', {
   host: 'localhost',

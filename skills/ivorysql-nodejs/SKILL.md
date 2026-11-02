@@ -122,7 +122,7 @@ try {
 ## Sequelize ORM
 
 ```javascript
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 const sequelize = new Sequelize('ivorysql', 'ivorysql', 'secret', {
   host: 'localhost', port: 1521, dialect: 'postgres'
 });
