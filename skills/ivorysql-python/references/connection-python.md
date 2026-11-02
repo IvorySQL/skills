@@ -61,7 +61,7 @@ import asyncio
 import psycopg
 
 async def main():
-    async with await psycopg.connect(
+    async with await psycopg.AsyncConnection.connect(
         "postgresql://ivorysql:secret@localhost:1521/ivorysql"
     ) as conn:
         async with conn.cursor() as cur:
@@ -120,10 +120,16 @@ engine = create_engine(
 
 ### psycopg3 Async Connection Pool
 
-```python
-import psycopg.pool
+The pool is provided by the separate `psycopg_pool` package. Install the optional pool extra to use this example:
 
-async with psycopg.pool.AsyncConnectionPool(
+```bash
+pip install "psycopg[pool]"
+```
+
+```python
+import psycopg_pool
+
+async with psycopg_pool.AsyncConnectionPool(
     "postgresql://ivorysql:secret@localhost:1521/ivorysql",
     min_size=5, max_size=20
 ) as pool:
