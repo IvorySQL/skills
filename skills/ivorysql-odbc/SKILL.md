@@ -170,7 +170,7 @@ SQLAllocHandle(SQL_HANDLE_STMT, hdbc, &hstmt);
 SQLExecDirect(hstmt, (SQLCHAR*)"SELECT * FROM employees LIMIT 10", SQL_NTS);
 
 SQLCHAR name[101], salary[21];
-while (SQLFetch(hstmt) == SQL_SUCCESS) {
+while (SQL_SUCCEEDED(SQLFetch(hstmt))) {
     SQLGetData(hstmt, 1, SQL_C_CHAR, name, 100, NULL);
     SQLGetData(hstmt, 2, SQL_C_CHAR, salary, 20, NULL);
     printf("%s - %s\n", name, salary);
