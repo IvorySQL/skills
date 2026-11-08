@@ -85,7 +85,7 @@ await Promise.all(values.map(v => pool.query(query, v)));
 ## COPY Batch Import (Fastest)
 
 ```javascript
-const { pipeline } = require('stream');
+const { pipeline } = require('stream/promises');
 const { Readable } = require('stream');
 
 const data = 'Zhang San,8000,IT\nLi Si,9000,HR\n';
@@ -97,6 +97,9 @@ try {
   const stream = client.query(require('pg-copy-streams').from('COPY employees FROM STDIN WITH CSV'));
   await pipeline(source, stream);
   await client.query('COMMIT');
+} catch (error) {
+  await client.query('ROLLBACK');
+  throw error;
 } finally {
   client.release();
 }
@@ -122,7 +125,7 @@ try {
 ## Sequelize ORM
 
 ```javascript
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Op } = require('sequelize');
 const sequelize = new Sequelize('ivorysql', 'ivorysql', 'secret', {
   host: 'localhost', port: 1521, dialect: 'postgres'
 });
