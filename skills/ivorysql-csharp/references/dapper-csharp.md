@@ -127,8 +127,8 @@ public class Employee
 ## Performance Optimization
 
 ```csharp
-// Batch size
-conn.Execute(sql, list, batchTimeout: 300);
+// Execute once per item, with a 300-second command timeout (not a batch size).
+conn.Execute(sql, list, commandTimeout: 300);
 
 // Buffering (default is full cache)
 var emps = conn.Query<Employee>(sql, buffered: true);
