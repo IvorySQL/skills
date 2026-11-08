@@ -97,6 +97,9 @@ try {
   const stream = client.query(require('pg-copy-streams').from('COPY employees FROM STDIN WITH CSV'));
   await pipeline(source, stream);
   await client.query('COMMIT');
+} catch (error) {
+  await client.query('ROLLBACK');
+  throw error;
 } finally {
   client.release();
 }
